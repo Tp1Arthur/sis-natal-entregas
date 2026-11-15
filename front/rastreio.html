@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rastreio de Presentes | Correio do Polo Norte</title>
+
+  <!-- Leaflet: biblioteca gratuita de mapas -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Flocos de neve (criados pelo rastreio.js) -->
+  <div id="neve" aria-hidden="true"></div>
+
+  <header class="topo">
+    <h1>🎅 Correio do Polo Norte</h1>
+    <p class="subtitulo">Rastreie o seu presente de Natal em tempo real</p>
+    <p class="contagem" id="contagem"></p>
+  </header>
+
+  <main class="conteudo">
+    <!-- Busca -->
+    <section class="cartao busca">
+      <form id="form-busca">
+        <label for="codigo">Código de rastreio</label>
+        <div class="busca-linha">
+          <input type="text" id="codigo" placeholder="Ex.: NOEL-0004" autocomplete="off" maxlength="20">
+          <button type="submit">Rastrear</button>
+        </div>
+      </form>
+      <p id="mensagem" class="mensagem" role="alert" hidden></p>
+    </section>
+
+    <!-- Resultado (só aparece depois de uma busca com sucesso) -->
+    <section id="resultado" class="resultado" hidden>
+      <div class="cartao">
+        <p class="rotulo">Presente de</p>
+        <h2 id="info-crianca"></h2>
+        <p class="detalhe">🎁 <span id="info-brinquedo"></span></p>
+        <p class="detalhe">📍 <span id="info-endereco"></span></p>
+
+        <p class="status-texto" id="info-status" aria-live="polite"></p>
+        <ol id="linha-etapas" class="etapas"></ol>
+        <p class="distancia" id="info-distancia"></p>
+      </div>
+
+      <div class="cartao cartao-mapa">
+        <div id="mapa"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    Projeto fictício de Natal · C#, MySQL, HTML, CSS e JS
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="rastreio.js"></script>
+</body>
+</html>
